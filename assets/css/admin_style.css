@@ -1,0 +1,60 @@
+.flexible_section{display: flex}
+.right-side-section{padding: 20px 10px}
+.custom_plugin_table{
+		border-collapse: collapse;
+	    background: #fff;
+	    width: 100%;
+	    border: 1px solid lightgray;
+	    border-radius: 5px;
+	}
+	.custom_plugin_table tr{
+		border:1px solid lightgray
+	}
+	.custom_plugin_table tr th{background-color: #e4eaee}
+	.custom_plugin_table td,.custom_plugin_table th{padding:10px 20px;text-align: left}
+	.custom_plugin_table td:last-child{text-align: right}
+	.custom_plugin_insert{display: flex;justify-content: space-between}
+	.button_remove{
+		color: #DC143C;
+	    border-color: #DC143C;
+	    background: #f3f5f6;
+	    vertical-align: top;
+	    min-height: 30px;
+	    margin: 0;
+	    padding: 0 10px;
+	    border:1px solid;
+	    font-size: 13px;
+	    text-decoration:none;
+	    border-radius: 3px;
+	    display: inline-block;
+	    line-height: 28px;
+	    cursor: pointer
+	}
+	.button_remove:hover{
+		color: #A52A2A;
+	    border-color: #A52A2A;
+	}
+
+.auto_specs_modal[data-modal='off']{display: none}
+.auto_specs_modal[data-modal='on']{display: block}
+.auto_specs_modal .regular-width{width: 220px}
+.auto_specs_modal{
+	background-color: #fff;
+	width: 400px;
+	padding: 10px;
+	position: relative;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	margin: auto;
+}
+.auto_specs_modal main{margin: 15px 0}
+.auto_specs_modal footer{padding: 10px 0}
+.rows_shortcode_pagination{display: none}
+.rows_admin_pagination{display: none}
+#custom_css{width: 100%;min-height: 130px}
+.admin_pagination_contain{background-color: whitesmoke}
+.admin_pagination{display: flex;justify-content: space-between}
+
+.admin_pagination button{cursor: pointer;font-weight: bold}

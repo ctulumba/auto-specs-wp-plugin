@@ -1,0 +1,6 @@
+.shortcode_table_view th,.shortcode_table_view td{background-color:#fff}
+.shortcode_table_view th[colspan='2']{text-align: center;background-color: #e4eaee}
+.pagination_next_prev{display:flex;justify-content:space-between}
+.pagination_next_prev span{cursor: pointer;font-weight: bold}
+.hide_table_field{display: none}
+.shortcode_table_view .pagination_cont{background-color: whitesmoke}
