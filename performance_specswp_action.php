@@ -2,7 +2,7 @@
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-$car_ids = $this->get_all_data("id",$this->custom_table);
+$car_ids = $this->get_all_data("id,model,years_built",$this->custom_table);
 $car_ids2 = $this->get_all_data("car_id",$this->performance_custom_table);
 $car_id = 0;
 $result = [];
@@ -40,14 +40,16 @@ foreach ($car_ids2 as $key2) {
 							<?php if (!empty($car_ids)) { ?>
 								<select name="car_id" class="regular-text">
 									<option value="0">Select Car ID</option>
-									<?php foreach ($car_ids as $key) { 
+									<?php foreach ($car_ids as $key) {
+										$name = $key['id'];
+										$name .= $key['model'] !=''?" - ".$key['model']:'';
+										$name .= $key['years_built'] !=''&&$key['years_built']!='0'?" - ".$key['years_built']:'';
 										if ($car_id == $key['id']) { ?>
-											<option value='<?php echo $key["id"] ?>' selected><?php echo $key['id'] ?></option>
+											<option value='<?php echo $key["id"] ?>' selected><?php echo $name ?></option>
 									<?php }else{ ?>
-										    <option value='<?php echo $key["id"] ?>' ><?php echo $key['id'] ?></option>
+										    <option value='<?php echo $key["id"] ?>' ><?php echo $name ?></option>
 									<?php }
-									 }
-									 ?>
+									 } ?>
 								</select>
 							<?php }else{ ?>
 									<span>There is no car you can assign</span>
@@ -60,11 +62,11 @@ foreach ($car_ids2 as $key2) {
 					</tr>
 					<tr>
 						<th scope="row">Top Speed (kmph)</th>
-						<td><input name="top_speed_kmph" type="text" class="regular-text" value="<?php echo isset($top_speed_kmph)?$top_speed_kmph:''; ?>" required></td>
+						<td><input name="top_speed_kmph" type="text" class="regular-text" value="<?php echo isset($top_speed_kmph)?$top_speed_kmph:''; ?>"></td>
 					</tr>
 					<tr>
 						<th scope="row">Est Max Accelaration</th>
-						<td><input name="est_max_accelaration" type="text" class="regular-text" required value="<?php echo isset($est_max_accelaration)?$est_max_accelaration:''; ?>" required></td>
+						<td><input name="est_max_accelaration" type="text" class="regular-text" value="<?php echo isset($est_max_accelaration)?$est_max_accelaration:''; ?>"></td>
 					</tr>
 					<tr>
 						<th scope="row">18m slalom</th>

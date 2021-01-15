@@ -8,8 +8,6 @@ if ($action != "Add" && isset($_GET['carid'])) {
 	$result = $this->get_data_by_id($_GET['carid'],$this->custom_table);
 	$check = "false";
 	if (!empty($result)) {
-		//echo "<pre>";
-		// print_r($result);die;
 		extract($result[0]);
 		$check = "true";
 	}
@@ -45,11 +43,11 @@ $engine['position'] = ['Front','Rear','Mid etc'];
 					</tr>
 					<tr>
 						<th scope="row">Brand</th>
-						<td><input name="brand" type="text" class="regular-text" value="<?php echo isset($brand)?$brand:''; ?>" required></td>
+						<td><input name="brand" type="text" class="regular-text" value="<?php echo isset($brand)?$brand:''; ?>"></td>
 					</tr>
 					<tr>
 						<th scope="row">Model</th>
-						<td><input name="model" type="text" class="regular-text" required value="<?php echo isset($model)?$model:''; ?>" required></td>
+						<td><input name="model" type="text" class="regular-text" value="<?php echo isset($model)?$model:''; ?>"></td>
 					</tr>
 					<tr>
 						<th scope="row">Trim</th>
@@ -65,7 +63,7 @@ $engine['position'] = ['Front','Rear','Mid etc'];
 					</tr>
 					<tr>
 						<th scope="row">Years Built</th>
-						<td><input name="years_built" type="number" min="1900" class="regular-text" value="<?php echo isset($years_built)?$years_built:1900; ?>"></td>
+						<td><input name="years_built" type="text" class="regular-text" value="<?php echo isset($years_built)?$years_built:''; ?>"></td>
 					</tr>
 					<tr>
 						<th scope="row">Production</th>
@@ -102,6 +100,7 @@ $engine['position'] = ['Front','Rear','Mid etc'];
 					<tr>
 						<th scope="row">Type</th>
 						<td><select name="type" class="regular-text">
+							<option value="">Not Selected</option>
 							<?php foreach ($category['type'] as $key) { ?>
 								<option <?php echo isset($class) && $key == $type?"selected":""; ?>><?php echo $key; ?></option>
 							<?php } ?>
@@ -126,6 +125,7 @@ $engine['position'] = ['Front','Rear','Mid etc'];
 					<tr>
 						<th scope="row">Segment 1</th>
 						<td><select name="segment_1" class="regular-text">
+							<option value="">Not Selected</option>
 							<?php foreach ($category['segment_1'] as $key) { ?>
 								<option <?php echo isset($segment_1) && $key == $segment_1?"selected":""; ?>><?php echo $key; ?></option>
 							<?php } ?>
@@ -134,6 +134,7 @@ $engine['position'] = ['Front','Rear','Mid etc'];
 					<tr>
 						<th scope="row">Segment 2</th>
 						<td><select name="segment_2" class="regular-text">
+							<option value="">Not Selected</option>
 							<?php foreach ($category['segment_2'] as $key) { ?>
 								<option <?php echo isset($segment_2) && $key == $segment_2?"selected":""; ?>><?php echo $key; ?></option>
 							<?php } ?>
@@ -142,6 +143,7 @@ $engine['position'] = ['Front','Rear','Mid etc'];
 					<tr>
 						<th scope="row">Segment 3</th>
 						<td><select name="segment_3" class="regular-text">
+							<option value="">Not Selected</option>
 							<?php foreach ($category['segment_3'] as $key) { ?>
 								<option <?php echo isset($segment_3) && $key == $segment_3?"selected":""; ?>><?php echo $key; ?></option>
 							<?php } ?>
@@ -150,6 +152,7 @@ $engine['position'] = ['Front','Rear','Mid etc'];
 					<tr>
 						<th scope="row">Segment 4</th>
 						<td><select name="segment_4" class="regular-text">
+							<option value="">Not Selected</option>
 							<?php foreach ($category['segment_4'] as $key) { ?>
 								<option <?php echo isset($segment_4) && $key == $segment_4?"selected":""; ?>><?php echo $key; ?></option>
 							<?php } ?>
@@ -158,6 +161,7 @@ $engine['position'] = ['Front','Rear','Mid etc'];
 					<tr>
 						<th scope="row">Segment 5</th>
 						<td><select name="segment_5" class="regular-text">
+							<option value="">Not Selected</option>
 							<?php foreach ($category['segment_5'] as $key) { ?>
 								<option <?php echo isset($segment_5) && $key == $segment_5?"selected":""; ?>><?php echo $key; ?></option>
 							<?php } ?>
@@ -322,12 +326,8 @@ $engine['position'] = ['Front','Rear','Mid etc'];
 						<td><input name="main_bearings" type="text" class="regular-text" value="<?php echo isset($main_bearings)?$main_bearings:''; ?>"></td>
 					</tr>
 					<tr>
-						<th scope="row">Bore</th>
-						<td><input name="bore" type="text" class="regular-text" value="<?php echo isset($borebore)?$borebore:''; ?>"></td>
-					</tr>
-					<tr>
-						<th scope="row">Stroke</th>
-						<td><input name="stroke" type="text" class="regular-text" value="<?php echo isset($stroke)?$stroke:''; ?>"></td>
+						<th scope="row">Bore Stroke</th>
+						<td><input name="bore_stroke" type="text" class="regular-text" value="<?php echo isset($bore_stroke)?$bore_stroke:''; ?>"></td>
 					</tr>
 					<tr>
 						<th scope="row">Valve Gear</th>
