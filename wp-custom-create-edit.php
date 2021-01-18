@@ -117,8 +117,9 @@ $engine['position'] = ['Front','Rear','Mid etc'];
 					<tr>
 						<th scope="row">Size 2</th>
 						<td><select name="size_2" class="regular-text">
+							<option value="">Not Selected</option>
 							<?php foreach ($category['size_2'] as $key) { ?>
-								<option <?php echo isset($size_2) && $key == $size?"selected":""; ?>><?php echo $key; ?></option>
+								<option <?php echo isset($size_2) && $key == $size_2?"selected":""; ?>><?php echo $key; ?></option>
 							<?php } ?>
 						</select></td>
 					</tr>

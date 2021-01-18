@@ -49,7 +49,7 @@ class WpAutoSpecs {
 	}
 	public function get_auto_title($index,$class){
 		$html = '';
-		if ($index < 11 && $this->general == false) {
+		if ($index < 12 && $this->general == false) {
 			$html .= "<tr class='".$class."category_title' ><th colspan='2'>General</th></tr>";
 			$this->general = true;
 		}else if ($index > 10 && $index < 21 && $this->category == false) {
@@ -64,13 +64,13 @@ class WpAutoSpecs {
 		}else if ($index > 51 && $index < 76 && $this->engine == false) {
 		 	$html .= "<tr class='".$class."category_title' ><th colspan='2'>Engine/PowerTrain</th></tr>";
 		 	$this->engine = true;
-		}else if ($index > 77 && $index < 90 && $this->transmission == false) {
+		}else if ($index > 76 && $index < 89 && $this->transmission == false) {
 		 	$html .= "<tr class='".$class."category_title' ><th colspan='2'>Transmission</th></tr>";
 		 	$this->transmission = true;
-		}else if ($index > 89 && $index < 94 && $this->capacities == false) {
+		}else if ($index > 88 && $index < 93 && $this->capacities == false) {
 		 	$html .= "<tr class='".$class."category_title' ><th colspan='2'>Capacities</th></tr>";
 		 	$this->capacities = true;
-		}else if ($index > 93 && $this->pricing == false) {
+		}else if ($index > 92 && $this->pricing == false) {
 		 	$html .= "<tr class='".$class."category_title' ><th colspan='2'>Pricing</th></tr>";
 		 	$this->pricing = true;
 		}
@@ -112,8 +112,6 @@ class WpAutoSpecs {
 				$html = "<div><table class='form-table shortcode_perf_table_view shortcode_table_view' data-id='"."perf_".$id."'>";
 				unset($data[0]['created_at']);
 				unset($data[0]['id']);
-				// $data[0]['page_url'] = '';	
-				// $data[0]['image_url'] = '';
 				$search = [
 					"_",
 					"acceleration 0 ",
@@ -138,16 +136,10 @@ class WpAutoSpecs {
 						$html .= "<tr class='".$custom_class."field_val'>";
 						$html .= "<th>".ucfirst(str_replace($search,$repalce,$key))."</th>";
 						$html .= "<td>";
-						if (filter_var($value, FILTER_VALIDATE_URL) === FALSE) {
-							$html .= $value;
-						}else{
-							$html .= "<a href='".$value."'>".$value."</a>";
-						}
+						$html .= $value;
 						$html .= "</td>";
 						$html .= "</tr>";
-					}else{
-						$index--;
-					}	
+					}
 					$index++;
 				}
 				if ($row > 1) {
@@ -180,21 +172,15 @@ class WpAutoSpecs {
 					if ($row > 1 && $row <= $index) {
 							$custom_class = "hide_table_field ";
 					}
-					if ($value != '' && $value != false) {
+					if ($value != '' || $value != false) {
 						$key = str_replace(["capacities_","transmission_"],'', $key);
 						$html .= $this->get_auto_title($index,$custom_class);
 						$html .= "<tr class='".$custom_class."field_val' >";
 						$html .= "<th>".ucfirst(str_replace("_"," ",$key))."</th>";
 						$html .= "<td>";
-						if (filter_var($value, FILTER_VALIDATE_URL) === FALSE) {
-							$html .= $value;
-						}else{
-							$html .= "<a href='".$value."'>".$value."</a>";
-						}
+						$html .= $value;
 						$html .= "</td>";
 						$html .= "</tr>";
-					}else{
-						$index--;
 					}
 					$index++;
 				}

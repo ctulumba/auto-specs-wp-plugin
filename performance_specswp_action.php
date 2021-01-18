@@ -2,7 +2,7 @@
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-$car_ids = $this->get_all_data("id,model,years_built",$this->custom_table);
+$car_ids = $this->get_all_data("id,brand,model,model_year",$this->custom_table);
 $car_ids2 = $this->get_all_data("car_id",$this->performance_custom_table);
 $car_id = 0;
 $result = [];
@@ -42,8 +42,9 @@ foreach ($car_ids2 as $key2) {
 									<option value="0">Select Car ID</option>
 									<?php foreach ($car_ids as $key) {
 										$name = $key['id'];
+										$name .= $key['brand'] !=''?" - ".$key['brand']:'';
 										$name .= $key['model'] !=''?" - ".$key['model']:'';
-										$name .= $key['years_built'] !=''&&$key['years_built']!='0'?" - ".$key['years_built']:'';
+										$name .= $key['model_year'] !=''&&$key['model_year']!='0'?" - ".$key['model_year']:'';
 										if ($car_id == $key['id']) { ?>
 											<option value='<?php echo $key["id"] ?>' selected><?php echo $name ?></option>
 									<?php }else{ ?>
