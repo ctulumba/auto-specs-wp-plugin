@@ -128,20 +128,24 @@ class WpAutoSpecs {
 				];
 				$repalce = [" ","0-","1/","200-","100-","60-","5-","60-","100-","200-","1000"];
 				$index = 0;
+				$index2 = 0;
 				foreach ($data[0] as $key => $value) {
 					if ($row > 1 && $row <= $index) {
 							$custom_class = "hide_table_field ";
 					}
 					if ($value != '' && $value != false) {
-						$html .= $this->get_perf_title($index,$custom_class);
+						$html .= $this->get_perf_title($index2,$custom_class);
 						$html .= "<tr class='".$custom_class."field_val'>";
 						$html .= "<th>".ucfirst(str_replace($search,$repalce,$key))."</th>";
 						$html .= "<td>";
 						$html .= $value;
 						$html .= "</td>";
 						$html .= "</tr>";
+					}else{
+						$index--;
 					}
 					$index++;
+					$index2++;
 				}
 				if ($row > 1) {
 					$html .= "<tr><td class='pagination_cont' colspan='2'><div class='pagination_next_prev' data-id='"."perf_".$id."' data-count='".$index."' data-row='".$row."' data-start='0'>
@@ -168,6 +172,7 @@ class WpAutoSpecs {
 				unset($data[0]['created_at']);
 				unset($data[0]['id']);
 				$index = 0;
+				$index2 = 0;
 				$custom_class = "";
 				foreach ($data[0] as $key => $value) {
 					if ($row > 1 && $row <= $index) {
@@ -175,15 +180,18 @@ class WpAutoSpecs {
 					}
 					if ($value != '' || $value != false) {
 						$key = str_replace(["capacities_","transmission_"],'', $key);
-						$html .= $this->get_auto_title($index,$custom_class);
+						$html .= $this->get_auto_title($index2,$custom_class);
 						$html .= "<tr class='".$custom_class."field_val' >";
 						$html .= "<th>".ucfirst(str_replace("_"," ",$key))."</th>";
 						$html .= "<td>";
 						$html .= $value;
 						$html .= "</td>";
 						$html .= "</tr>";
+					}else{
+						$index--;
 					}
 					$index++;
+					$index2++;
 				}
 				if ($row > 1) {
 					$html .= "<tr><td class='pagination_cont' colspan='2'><div class='pagination_next_prev' data-id='"."auto_".$id."' data-count='".$index."' data-row='".$row."' data-start='0'>
