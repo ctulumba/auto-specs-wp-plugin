@@ -78,22 +78,22 @@ class WpAutoSpecs {
 	}
 	public function get_perf_title($index,$class){
 		$html = '';
-		if ($index < 7 && $this->general_perf == false) {
+		if ($index < 6 && $this->general_perf == false) {
 			$html .= "<tr class='".$class."category_title' ><th colspan='2'>General Performance</th></tr>";
 			$this->general_perf = true;
-		}else if ($index > 6 && $index < 26 && $this->acceleration_mph == false) {
+		}else if ($index > 5 && $index < 25 && $this->acceleration_mph == false) {
 			$html .= "<tr class='".$class."category_title' ><th colspan='2'>Acceleration (mph)</th></tr>";
 			$this->acceleration_mph = true;
-		}else if ($index > 25 && $index < 48 && $this->acceleration_kmph == false) {
+		}else if ($index > 24 && $index < 47 && $this->acceleration_kmph == false) {
 		 	$html .= "<tr class='".$class."category_title' ><th colspan='2'>Acceleration (kmph)</th></tr>";
 		 	$this->acceleration_kmph = true;
-		}else if ($index > 47 && $index < 52 && $this->braking == false) {
+		}else if ($index > 46 && $index < 51 && $this->braking == false) {
 		 	$html .= "<tr class='".$class."category_title' ><th colspan='2'>Braking</th></tr>";
 		 	$this->braking = true;
-		}else if ($index > 51 && $index < 58 && $this->rolling_acceleration == false) {
+		}else if ($index > 50 && $index < 57 && $this->rolling_acceleration == false) {
 		 	$html .= "<tr class='".$class."category_title' ><th colspan='2'>Rolling Acceleration</th></tr>";
 		 	$this->rolling_acceleration = true;
-		}else if ($index > 57) {
+		}else if ($index > 56) {
 			$html .= "<tr class='".$class."category_title' ><th colspan='2'>Laptimes?</th></tr>";
 		}
 		return $html;
@@ -112,6 +112,7 @@ class WpAutoSpecs {
 				$html = "<div><table class='form-table shortcode_perf_table_view shortcode_table_view' data-id='"."perf_".$id."'>";
 				unset($data[0]['created_at']);
 				unset($data[0]['id']);
+				unset($data[0]['car_id']);
 				$search = [
 					"_",
 					"acceleration 0 ",
